@@ -1,0 +1,9 @@
+'uploadManifest={
+    "input":
+    {
+        "name": "Uploaded document",
+        "_filename" : ["file.txt"]
+    }
+};
+type=application/json' \
+-F 'filename[0]=@file.txt' \

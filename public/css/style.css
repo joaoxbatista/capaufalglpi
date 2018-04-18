@@ -1,0 +1,125 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+body{
+  background-color: #fafafa;
+}
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+.ufal img{
+  max-height: 55px;
+  min-height: 55px;
+}
+.ufal a{
+  font-size: 30px;
+  margin-left: 20px;
+}
+
+.fmenu a{
+	font-size: 25px;
+}
+.nomesp h6{
+	font-size: 16px;
+}
+.nomesp p{
+	font-size: 15px;
+}
+.imgcard h6{
+	max-height: 40px;
+	min-height: 40px;
+}
+
+.tam .carousel{
+	min-height: 600px
+}
+.tam im{
+	min-height: 600px;
+}
+
+.logoufal{
+	margin-top: 1px;
+}
+
+.brand-logo
+{
+	font-size: 12px !important;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#menu ul li a
+{
+	text-transform: uppercase;
+}
+
+.collapsible
+{
+	-webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: none;
+}
+.collapsible-header
+{
+	background: #f5f5f5;
+	color: #080808;
+	border: 0px;
+	font-size: 14px;
+	text-transform: capitalize;
+}
+
+.service-title 
+{
+	height: 40px;
+	padding: 5px 40px;
+	display: block;
+	position: relative;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+.service-title i
+{
+	position: absolute;
+	margin-top: 4px;
+	margin-left: -30px;
+}
+
+.service-content
+{
+	padding: 5px 40px;
+	display: block;
+}
+
+.collapsible-body
+{
+	background: #e3f2fd;
+	color: #444;
+}
+
+.category-chip
+{
+	background: #888;
+	color: #f5f5f5;
+	margin-bottom: -10px;
+	padding: 10px;
+	margin-top: 20px;
+}
+
+.tabs .tab a
+{
+	color: #080808;
+}
+
+.tabs .tab a.active
+{
+	color: #424242;
+	border: none;
+}

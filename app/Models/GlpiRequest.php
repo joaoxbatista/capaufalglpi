@@ -71,22 +71,33 @@ class GlpiRequest
         return $token->session_token;
     }
 
+    /*
+    Função para realizar o armazenamento de uma entidade da API
+    */
     public function store($session_token, $entity_name, $data)
     {
     	$url_store = "{$this->base_url}/{$entity_name}";
     	$this->setBody($data);
     	$this->addToHeader('Session-Token', $session_token);
-
         $data = [
             'input' => $data
         ];
-
         $response = $this->client->post($url_store, [
     		'headers' => $this->headers,
     		'json' => $data
     	]);
-
-
         return $response->getBody();
+    }
+
+    public function get($session_token, $entity_name)
+    {
+        $url_store = "{$this->base_url}/{$entity_name}";
+        $this->addToHeader('Session-Token', $session_token);
+       
+        $response = $this->client->get($url_store, [
+            'headers' => $this->headers,
+        ]);
+
+        return $response;
     }
 }

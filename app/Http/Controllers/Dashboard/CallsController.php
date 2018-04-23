@@ -22,31 +22,33 @@ class CallsController extends Controller
         $service  = Service::find($request->get('service_id'));
         $user_settings = Auth::user()->settings;
         
-        $data = "            
-        [
+        if($user_settings){
+            $data = "            
+            [
+                {
+                    \"slts_tto_id\": {$request->get('service_id')},
+                    \"name\": \"{$service->name}\",
+                    \"content\": \" Nome: {$user_settings->first_name} {$user_settings->last_name} \\nE-mail: {$user_settings->email} \\nTelefone 1: {$user_settings->phone1} \\nTelefone 2: {$user_settings->phone2} \\nDescrição: {$request->get('description')} \"    
+                }
+            ]";
+
+            
+
+            $GlpiRequest = new GlpiRequest();
+            $glpi_token = session()->get('glpi_session_token');
+
+            if($glpi_token)
             {
-                \"slts_tto_id\": {$request->get('service_id')},
-                \"name\": \"{$service->name}\",
-                \"content\": \" Nome: {$user_settings->first_name} {$user_settings->last_name} \\nE-mail: {$user_settings->email} \\nTelefone 1: {$user_settings->phone1} \\nTelefone 2: {$user_settings->phone2} \\nDescrição: {$request->get('description')} \"    
+                $message = $GlpiRequest->store($glpi_token, 'Ticket', json_decode($data));
+
+                return redirect()->route('static.home')->with('msg-success-call', true);
             }
-        ]";
-
-        echo $data;
-
-        
-
-        $GlpiRequest = new GlpiRequest();
-        $glpi_token = session()->get('glpi_session_token');
-
-        if($glpi_token)
-        {
-            $message = $GlpiRequest->store($glpi_token, 'Ticket', json_decode($data));
-
-            return redirect()->route('static.home')->with('msg', 'Chamado realizado com sucesso!');
         }
-
+        else
+        {
+            return redirect()->route('dashboard.user.settings')->with('msg-user-settings', true);
+        }
         
-
         
     }
 }

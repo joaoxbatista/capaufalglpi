@@ -21,6 +21,7 @@ class CreateServicesTable extends Migration
             $table->string('requirements', 500); // Requisitos
             $table->text('quick_help')->nullable(); // Ajuda Rápida
             $table->enum('type', [1, 2]); //Tipo INCIDENTE = 1 REQUISIÇÃO = 2
+            $table->boolean('localizable'); //Local do chamado
             $table->integer('slt_id')->unsigned(); // ID da SLT
             $table->integer('sector_category_id')->unsigned(); // Chave Estrangeira do Setor Responsável
             $table->foreign('sector_category_id')->references('id')->on('sector_categories');

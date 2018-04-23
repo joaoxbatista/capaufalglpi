@@ -21,6 +21,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => 'Senha de acesso ufalsong', 
             'slt_id' => 1,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]);
 
@@ -32,6 +33,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 3,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]);
 
@@ -42,6 +44,8 @@ class ServiceSeeder extends Seeder
             'requirements' => 'Equipamento com IP fixo em conformidade com políticas internas de Redes; serviço VNC, RDP ou SSH devidamente configurado; solicitação e criação de usuário para esta finalidade no setor de Redes',
             'quick_help' => '', 
             'slt_id' => 4,
+            'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]);
 
@@ -53,6 +57,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 7,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]);
 
@@ -64,6 +69,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 91,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]);
 
@@ -75,6 +81,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 21,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]);
 
@@ -86,6 +93,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 22,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]);
         
@@ -97,6 +105,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 23,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]);
         
@@ -108,6 +117,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 24,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]); 
 
@@ -119,6 +129,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 25,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]);
 
@@ -131,6 +142,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 26,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]);
 
@@ -143,6 +155,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 27,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]);
 
@@ -155,6 +168,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 28,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 2,
         ]);
 
@@ -167,6 +181,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 29,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 3,
         ]);
 
@@ -178,6 +193,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 30,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 3,
         ]);
 
@@ -190,6 +206,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 31,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 3,
         ]);
 
@@ -202,6 +219,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 32,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 3,
         ]);
 
@@ -213,6 +231,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 33,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 3,
         ]);
 
@@ -225,6 +244,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 34,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 3,
         ]);
 
@@ -236,6 +256,7 @@ class ServiceSeeder extends Seeder
             'quick_help' => '', 
             'slt_id' => 35,
             'type' => 1,
+            'localizable' => false,
             'sector_category_id' => 3,
         ]);
     }

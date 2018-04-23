@@ -16,6 +16,7 @@ class Service extends Model
         'type',
         'sector_category_id',
         'slt_id', 
+        'localizable',
     ];
 
     public $timestamps = false;

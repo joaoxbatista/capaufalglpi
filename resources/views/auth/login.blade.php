@@ -5,7 +5,6 @@
     <div class="row" style="margin: 50px 0px;">
         <div class="col s6 offset-s3 card">
             <div class="card-content">
-                    <h5 class="cart-title">Formulário de Login</h5>
                     <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
@@ -40,10 +39,6 @@
                                 <button type="submit" class="btn btn-primary">
                                     Entrar
                                 </button>
-                                
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Esquecceu sua senha
-                                </a>
                             </div>
                         </div>
                     </form>

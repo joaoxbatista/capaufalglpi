@@ -13,49 +13,47 @@
 	@yield('styles')
 </head>
 <body>
-<!-- Menu -->
-
-
-<nav id="menu">
-	<div class="nav-wrapper blue dark-1">
-		<div class="container">
-			<a href="#" class="brand-logo">Universidade Federal de Alagoas Campus Arapiraca</a>
-			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="{{ route('static.home') }}">Página Inicial</a></li>
-				<!-- <li><a href="">Serviços</a></li> -->
-				<li><a href="{{ route('dashboard.user.settings') }}">Configurações</a></li>
-				
-				@if(Auth::check())
-				<li>
-					<a href="{{ route('logout') }}"
-						onclick="event.preventDefault();
-						document.getElementById('logout-form').submit();">
-						Sair
-					</a>
-					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-						{{ csrf_field() }}
-					</form>
-				</li>
-				@else
-					<li><a href="{{ route('login') }}">Entrar</a></li>
-				@endif
-			</ul>
+	<!-- Menu -->
+	<nav id="menu">
+		<div class="nav-wrapper blue dark-1">
+			<div class="container">
+				<a href="#" class="brand-logo">Universidade Federal de Alagoas Campus Arapiraca</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="{{ route('static.home') }}">Página Inicial</a></li>
+					<!-- <li><a href="">Serviços</a></li> -->
+					
+					
+					@if(Auth::check())
+					<li><a href="{{ route('dashboard.user.settings') }}">Configurações</a></li>
+					<li>
+						<a href="{{ route('logout') }}"
+							onclick="event.preventDefault();
+							document.getElementById('logout-form').submit();">
+							Sair
+						</a>
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+							{{ csrf_field() }}
+						</form>
+					</li>
+					@else
+						<li><a href="{{ route('login') }}">Entrar</a></li>
+					@endif
+				</ul>
+			</div>
 		</div>
+	</nav>
+
+	<div id="content" style="min-height: 60vh">
+		@yield('content')
 	</div>
-</nav>
 
-
-<div id="content" style="min-height: 50vh">
-	@yield('content')
-</div>
-
-<!-- Rodapé -->
-<footer class="page-footer blue darken-1">
-	<div class="container"> 
-		<div class="row">
-			<div class="col l4 s12">
-				<h5 class="white-text">Campus de Arapiraca</h5>
-				<p class="grey-text text-lighten-4"> 
+	<!-- Rodapé -->
+	<footer class="page-footer blue darken-1">
+		<div class="container"> 
+			<div class="row">
+				<div class="col l4 s12">
+					<h5 class="white-text">Campus de Arapiraca</h5>
+					<p class="grey-text text-lighten-4"></p>
 					<ul>
 						<li>Av. Manoel Severino Barbosa</li>
 						<li>Bom Sucesso</li>
@@ -63,7 +61,7 @@
 						<li>Arapiraca - AL</li>
 					</ul>
 				</div>
-				
+					
 				<div class="col l4 s12">
 					<h5 class="white-text">Contatos</h5>
 					<ul>
@@ -75,18 +73,19 @@
 					</ul>
 				</div>
 			</div>
-			
-			<div class="row"  style="margin-bottom: 0px">
-				<div class="col s12">
-					<div class="footer-copyright">
+		</div>
+
+		<div style="padding-bottom: 0px" class="footer-copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col s12">
 						© 2017 NTI Arapiraca, All rights reserved.
 					</div>
 				</div>
 			</div>
 		</div>
 	</footer>
-	
-	
+
 	<!--  Scripts-->
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="{{ asset('js/alertify.js') }}"></script>
@@ -94,10 +93,17 @@
 	<script src="{{ asset('js/init.js') }}"></script>
 
 
-	@if(Session::has('msg'))
+	@if(Session::has('msg-success-call'))
 		<script>
 			alertify.logPosition("top right");
 			alertify.success("Chamado realizado com sucesso!");
+		</script>
+	@endif
+
+	@if(Session::has('msg-user-settings'))
+		<script>
+			alertify.logPosition("top right");
+			alertify.error("É necessário informar os dados antes de realizar um chamado!");
 		</script>
 	@endif
 

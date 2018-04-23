@@ -23,15 +23,14 @@ class UserController extends Controller
         //Verifica se o usuário já possui configuração já cadastrada
         if(Auth::user()->settings)
         {
-            echo "Já possui configuração cadastrada";
             Auth::user()->settings()->update($data);
         }
         else
         {
-            echo "Não possui configuração cadastrada";
+            
             UserSettings::create($data);
         }
 
-//        return redirect()->route('dashboard.user.settings');
+        return redirect()->route('dashboard.user.settings');
     }
 }

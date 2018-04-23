@@ -123,3 +123,14 @@ body{
 	color: #424242;
 	border: none;
 }
+
+.info-service
+{
+	background: #e3f2fd ;
+	border-radius: 2px;
+	margin: 20px 0px;
+}
+
+.fixed [type="checkbox"] + label, .fixed [type="radio"] + label {
+  pointer-events: auto;
+}

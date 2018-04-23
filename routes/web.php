@@ -121,6 +121,8 @@ Route::group(
 	}
 );
 
+Route::get('/locations', 'Dashboard\ServicesController@getLocation')->name('getlocations');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

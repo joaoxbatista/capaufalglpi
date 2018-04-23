@@ -10,34 +10,6 @@ use App\Models\Sector;
 
 class ServicesController extends Controller
 {
-	// public function index() 
-	// {
-	//     $services = [
-	//         ['id' => 1, 'nome' => 'Serviço 01', 'tipo_id' => 1, 'categoria_id' => 1, 'grupo_id' => 1],
-    //         ['id' => 2, 'nome' => 'Serviço 02', 'tipo_id' => 1, 'categoria_id' => 1, 'grupo_id' => 1],
-    //         ['id' => 3, 'nome' => 'Serviço 03', 'tipo_id' => 1, 'categoria_id' => 1, 'grupo_id' => 1],
-
-    //     ];
-	// 	return view('dashboard.service.index', compact('services'));
-	// }
-
-	// public function store(Request $request)
-	// {
-
-	// 	$data = $request->except('_token');
-
-	// 	$GlpiRequest = new GlpiRequest();
-			
-	// 	$message = $GlpiRequest->store($request->session()->get('session_token'), 'Ticket', $data);
-
-	// 	return redirect()->route('dashboard.services.success');
-		
-	// }
-
-	// public function success(Request $request)
-	// {
-	// 	return view('dashboard.service.success_message');
-	// }
 
 	public function show($id)
 	{
@@ -61,10 +33,9 @@ class ServicesController extends Controller
 
 	public function store(Request $request)
 	{	
-		$service = $request->except('_token');	
-
+		$service = $request->except('_token');
+		$service_updated['localizable'] = isset($service_updated['localizable']) ? true : false;
 		Service::create($service);
-
 		return redirect()->route('static.home');
 	}
 
@@ -81,13 +52,25 @@ class ServicesController extends Controller
 		$service_id = $request->get('service_id');
 		$service = Service::find($service_id);
 		$sectors = Sector::all();
-		return view('dashboard.service.edit', compact(['service', 'sectors']));
+		foreach ($sectors as $sector) {
+			foreach ($sector->sector_categories as $category) {
+				$categories[$category->id] = "{$sector->name} - {$category->name}";
+			}
+		}
+		return view('dashboard.service.edit', compact(['service', 'categories']));
 	}
 	
 	public function update(Request $request) 
 	{	
 		$service = Service::find($request->get('id'));
-		$service->update($request->except('_token'));
+		$service_updated = $request->except('_token');
+		$service_updated['localizable'] = isset($service_updated['localizable']) ? true : false;
+		$service->update($service_updated);
 		return redirect()->route('dashboard.services.view', ['id' => $service->id]);
+	}
+
+	public function getLocation(Request $request)
+	{
+		
 	}
 }
